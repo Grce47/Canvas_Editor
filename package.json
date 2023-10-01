@@ -9,10 +9,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.8",
+    "@react-navigation/stack": "^6.3.18",
+    "@skynetcmg47/react-native-drag-resize": "^1.0.3",
     "expo": "~49.0.13",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
-    "react-native": "0.72.5"
+    "react-native": "0.72.5",
+    "react-native-drag-text-editor": "^1.0.5",
+    "react-native-draggable": "^3.3.0",
+    "react-native-reanimated": "^3.3.0",
+    "react-native-text-size": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
