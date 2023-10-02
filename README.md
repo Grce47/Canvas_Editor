@@ -37,6 +37,7 @@ The approach to developing the React Native project described in the provided co
 
    - This screen allows users to create and edit projects, which consist of draggable and resizable text blocks.
    - Users can add text blocks by entering text in the input field and tapping the "Add Text" button.
+   - Database Stores list(list(objects)). Object contains {text, x, y, w, h, project_id} to restore saved project with correct text, coordinate and size.
    - The draggable and resizable text blocks are managed using the `@skynetcmg47/react-native-drag-resize` library, enhancing user interaction.
    - Users can save their projects, and the data is stored locally using `AsyncStorage`. Projects can be either newly created or edited.
    - Parameter `project_id` will be used to load existing project. Else if `project_id=-1`, then new project will be created with `project_id=database.length`
