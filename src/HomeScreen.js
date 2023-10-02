@@ -12,7 +12,9 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.buttonContainer}>
           <Button
             title="Create Project"
-            onPress={() => navigation.navigate("CreateProject", { arr: [] })}
+            onPress={() =>
+              navigation.navigate("CreateProject", { project_id: -1 })
+            }
             style={styles.button}
           />
           <Button
