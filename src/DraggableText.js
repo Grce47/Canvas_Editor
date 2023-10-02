@@ -141,6 +141,18 @@ const DraggableText = ({ text, settext }) => {
       return block;
     });
     setBlocks(updatedBlocks);
+    const updatedText = updatedBlocks.map((val) => {
+      return {
+        text: val.text,
+        x: val.x,
+        project_id: val.project_id,
+        y: val.y,
+        w: val.w,
+        h: val.h,
+        fontSize: val.fontSize,
+      };
+    });
+    settext(updatedText);
   };
   // Function to decrease font size
   const decreaseFontSize = (key) => {
@@ -154,6 +166,18 @@ const DraggableText = ({ text, settext }) => {
       return block;
     });
     setBlocks(updatedBlocks);
+    const updatedText = updatedBlocks.map((val) => {
+      return {
+        text: val.text,
+        x: val.x,
+        project_id: val.project_id,
+        y: val.y,
+        w: val.w,
+        h: val.h,
+        fontSize: val.fontSize,
+      };
+    });
+    settext(updatedText);
   };
 
   return (
