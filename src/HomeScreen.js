@@ -4,12 +4,14 @@ import { View, Text, Button, StyleSheet, ImageBackground } from "react-native";
 const HomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
-      source={require("../assets/bck.jpeg")} // You can replace this with your own background image
+      source={require("../assets/bck.jpeg")}
       style={styles.container}
     >
+      {/* Overlay with a semi-transparent background */}
       <View style={styles.overlay}>
         <Text style={styles.title}>Welcome to Project Manager</Text>
         <View style={styles.buttonContainer}>
+          {/* Button to navigate to Create Project screen */}
           <Button
             title="Create Project"
             onPress={() =>
@@ -17,6 +19,7 @@ const HomeScreen = ({ navigation }) => {
             }
             style={styles.button}
           />
+          {/* Button to navigate to My Projects screen */}
           <Button
             title="My Projects"
             onPress={() => navigation.navigate("MyProjects")}
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black background
     width: "100%",
     height: "100%",
     justifyContent: "center",

@@ -8,6 +8,7 @@ export default function MyProject({ navigation }) {
   const [database, setDatabase] = useState([]);
 
   useEffect(() => {
+    // Load saved texts from AsyncStorage when the component mounts
     async function loadSavedTexts() {
       try {
         const savedTexts = await AsyncStorage.getItem(TEXTS_KEY);
@@ -22,6 +23,7 @@ export default function MyProject({ navigation }) {
     loadSavedTexts();
   }, []);
 
+  // Function to handle the deletion of a project item
   const handleDeleteItem = async (itemIndex) => {
     try {
       // Remove the item from the database array
