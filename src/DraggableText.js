@@ -16,6 +16,7 @@ const DraggableText = ({ text, settext }) => {
         h: val.h,
         zIndex: idx,
         text: val.text,
+        fontSize: val.fontSize,
         isDragEnabled: false,
       };
     })
@@ -33,6 +34,7 @@ const DraggableText = ({ text, settext }) => {
           w: val.w,
           h: val.h,
           zIndex: idx,
+          fontSize: val.fontSize,
           text: val.text,
           isDragEnabled: false,
         };
@@ -76,6 +78,7 @@ const DraggableText = ({ text, settext }) => {
         w: val.w,
         project_id: val.project_id,
         h: val.h,
+        fontSize: val.fontSize,
       };
     });
     settext(updatedText);
@@ -102,6 +105,7 @@ const DraggableText = ({ text, settext }) => {
         project_id: val.project_id,
         w: val.w,
         h: val.h,
+        fontSize: val.fontSize,
       };
     });
     settext(updatedText);
@@ -119,18 +123,37 @@ const DraggableText = ({ text, settext }) => {
         y: val.y,
         w: val.w,
         h: val.h,
+        fontSize: val.fontSize,
       };
     });
     settext(updatedText);
   };
 
-  // Function to calculate font size dynamically based on container dimensions and text length
-  const calcFontSize = (block) => {
-    const containerWidth = block.w;
-    const containerHeight = block.h;
-    const textLength = block.text.length;
-    const fontSize = Math.min(containerWidth, containerHeight) / textLength;
-    return fontSize;
+  // Function to increase font size
+  const increaseFontSize = (key) => {
+    const updatedBlocks = blocks.map((block) => {
+      if (block.key === key) {
+        return {
+          ...block,
+          fontSize: block.fontSize + 2, // Increase the font size (you can adjust the value)
+        };
+      }
+      return block;
+    });
+    setBlocks(updatedBlocks);
+  };
+  // Function to decrease font size
+  const decreaseFontSize = (key) => {
+    const updatedBlocks = blocks.map((block) => {
+      if (block.key === key) {
+        return {
+          ...block,
+          fontSize: block.fontSize - 2, // Decrease the font size (you can adjust the value)
+        };
+      }
+      return block;
+    });
+    setBlocks(updatedBlocks);
   };
 
   return (
@@ -166,7 +189,7 @@ const DraggableText = ({ text, settext }) => {
             ]}
           >
             <Text
-              style={[styles.text, { fontSize: calcFontSize(block) }]}
+              style={[styles.text, { fontSize: block.fontSize }]}
               onPress={() => {
                 toggleDragBlock(block.key);
               }}
@@ -175,14 +198,32 @@ const DraggableText = ({ text, settext }) => {
               {block.text}
             </Text>
             {!block.isDragEnabled && (
-              <TouchableOpacity
-                style={styles.deleteButton}
-                onPress={() => {
-                  deleteBlock(block.key);
-                }}
-              >
-                <Text style={styles.deleteButtonText}>Delete</Text>
-              </TouchableOpacity>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                  style={styles.deleteButton}
+                  onPress={() => {
+                    deleteBlock(block.key);
+                  }}
+                >
+                  <Text style={styles.buttonText}>Delete</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.fontSizeButton}
+                  onPress={() => {
+                    increaseFontSize(block.key);
+                  }}
+                >
+                  <Text style={styles.buttonText}>+2 Font</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.decreaseFontSizeButton}
+                  onPress={() => {
+                    decreaseFontSize(block.key);
+                  }}
+                >
+                  <Text style={styles.buttonText}>-2 Font</Text>
+                </TouchableOpacity>
+              </View>
             )}
           </View>
         </DragResizeBlock>
@@ -206,7 +247,7 @@ const styles = StyleSheet.create({
   deleteButton: {
     position: "absolute",
     top: 0,
-    right: 0,
+    left: 0,
     backgroundColor: "red",
     padding: 5,
     borderRadius: 5,
@@ -216,6 +257,37 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
+  },
+  buttonContainer: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    flexDirection: "column",
+    alignItems: "flex-end",
+  },
+
+  deleteButton: {
+    backgroundColor: "red",
+    padding: 5,
+    borderRadius: 5,
+    marginBottom: 5,
+  },
+
+  fontSizeButton: {
+    backgroundColor: "blue",
+    padding: 5,
+    borderRadius: 5,
+    marginBottom: 5,
+  },
+
+  decreaseFontSizeButton: {
+    backgroundColor: "green", // Adjust the style as needed
+    padding: 5,
+    borderRadius: 5,
+  },
+
+  buttonText: {
+    color: "white",
   },
 });
 

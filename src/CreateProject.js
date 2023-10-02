@@ -50,6 +50,7 @@ const CreateProject = ({ route, navigation }) => {
             w: 100,
             h: 100,
             project_id: project_id,
+            fontSize: 20,
           },
         ];
       } else {
@@ -61,6 +62,7 @@ const CreateProject = ({ route, navigation }) => {
             y: 0,
             w: 100,
             h: 100,
+            fontSize: 20,
             project_id: project_id,
           },
         ];
