@@ -52,25 +52,25 @@ The approach to developing the React Native project described in the provided co
 
 ### HOME PAGE
 
-![Home](./screenshots/home.png)
+<img src="./screenshots/home.png" alt="Home" height="400" />
 
 ### CREATE PROJECT PAGE
 
-![Create Project](./screenshots/createproject.png)
+<img src="./screenshots/createproject.png" alt="Create Project" height="400" />
 
 ### MY PROJECT PAGE
 
-![My Project](./screenshots/myproject.png)
+<img src="./screenshots/myproject.png" alt="My Project" height="400" />
 
 ### KEYBOARD IN CREATE PROJECT
 
-![Keyboard](./screenshots/keyboard.png)
+<img src="./screenshots/keyboard.png" alt="Keyboard" height="400" />
 
 ### ADD TEXT
 
-![Add Text](./screenshots/addtext.png)
-![Add Text2](./screenshots/addtext2.png)
+<img src="./screenshots/addtext.png" alt="Add Text" height="400" />
+<img src="./screenshots/addtext2.png" alt="Add Text2" height="400" />
 
 ### RESIZE TEXT
 
-![Resize Text](./screenshots/resize.png)
+<img src="./screenshots/resize.png" alt="Resize Text" height="400" />
